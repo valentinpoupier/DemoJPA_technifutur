@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "customers")
@@ -50,4 +51,7 @@ public class Customer {
             inverseJoinColumns = @JoinColumn(name = "customer_type_id")
     )
     private List<Demographic> types;
+
+    @OneToMany(mappedBy = "customer")
+    private Set<Order> orders;
 }

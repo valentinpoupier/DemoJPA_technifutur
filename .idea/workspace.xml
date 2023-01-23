@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3148cd9-f645-4c1e-ba0d-6a2cb341883d" name="Changes" comment="begin j">
-      <change afterPath="$PROJECT_DIR$/src/main/java/be/technifutur/poupier/entities/Shipper.java" afterDir="false" />
+    <list default="true" id="f3148cd9-f645-4c1e-ba0d-6a2cb341883d" name="Changes" comment="ajout d'entité">
+      <change afterPath="$PROJECT_DIR$/src/main/java/be/technifutur/poupier/entities/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/be/technifutur/poupier/entities/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/be/technifutur/poupier/entities/OrderDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/be/technifutur/poupier/entities/OrderDetailID.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/be/technifutur/poupier/entities/Region.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/be/technifutur/poupier/entities/Territory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/technifutur/poupier/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/technifutur/poupier/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/technifutur/poupier/entities/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/technifutur/poupier/entities/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/be/technifutur/poupier/entities/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/technifutur/poupier/entities/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/be/technifutur/poupier/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/technifutur/poupier/entities/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/technifutur/poupier/entities/Shipper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/technifutur/poupier/entities/Shipper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +34,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/be/technifutur/poupier/entities/Product.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
@@ -43,7 +55,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/studentjava02/Documents/DemoJPA_technifutur"
+    "last_opened_file_path": "C:/Users/studentjava02/Documents/DemoJPA_technifutur",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RunManager">
@@ -89,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674463659983</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ajout d'entité">
+      <created>1674466364919</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1674466364919</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -106,6 +126,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="begin" />
     <MESSAGE value="begin j" />
-    <option name="LAST_COMMIT_MESSAGE" value="begin j" />
+    <MESSAGE value="ajout d'entité" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout d'entité" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

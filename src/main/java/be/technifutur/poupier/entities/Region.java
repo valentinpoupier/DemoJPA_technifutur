@@ -7,27 +7,23 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "shippers")
+@Table(name = "region")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Shipper {
+public class Region {
 
     @Id
-    @Column(name = "shipper_id")
+    @Column(name = "region_id")
     private long id;
 
-    @Column(name = "company_name")
-    private String companyName;
+    @Column(name = "region_description")
+    private String regionDescription;
 
-    private String phone;
-
-    @OneToMany(mappedBy = "shipVia")
-    private Set<Order> orders;
-
+    @OneToMany(mappedBy = "regionId")
+    private Set<Territory> territories = new LinkedHashSet<>();
 }
