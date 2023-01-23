@@ -1,6 +1,5 @@
 package be.technifutur.poupier.entities;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,17 +8,16 @@ import lombok.Setter;
 
 import java.util.List;
 
-
 @Entity
-@Table(name = "suppliers")
+@Table(name = "customers")
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Supplier {
+public class Customer {
 
     @Id
-    @Column(name = "supplier_id")
-    private Long id;
+    @Column(name = "customer_id")
+    private String id;
 
     @Column(name = "company_Name")
     private String companyName;
@@ -45,9 +43,11 @@ public class Supplier {
 
     private String fax;
 
-    private String homepage;
-
-    @OneToMany(mappedBy = "supplier")
-    private List<Product> products;
-
+    @ManyToMany
+    @JoinTable(
+            name = "customer_customer_demo",
+            joinColumns = @JoinColumn(name = "customer_id"),
+            inverseJoinColumns = @JoinColumn(name = "customer_type_id")
+    )
+    private List<Demographic> types;
 }
