@@ -1,27 +1,17 @@
 package be.technifutur.poupier.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "employees")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Employee {
-
     @Id
     @Column(name = "employee_id")
-    private long employeeId;
+    private Short id;
 
     @Column(name = "last_name")
     private String lastName;
@@ -29,6 +19,7 @@ public class Employee {
     @Column(name = "first_name")
     private String firstName;
 
+    @Column(name = "title")
     private String title;
 
     @Column(name = "title_of_courtesy")
@@ -40,22 +31,28 @@ public class Employee {
     @Column(name = "hire_date")
     private LocalDate hireDate;
 
+    @Column(name = "address")
     private String address;
 
+    @Column(name = "city")
     private String city;
 
+    @Column(name = "region")
     private String region;
 
     @Column(name = "postal_code")
     private String postalCode;
 
+    @Column(name = "country")
     private String country;
 
     @Column(name = "home_phone")
     private String homePhone;
 
+    @Column(name = "extension")
     private String extension;
 
+    @Column(name = "notes")
     private String notes;
 
     @ManyToOne
@@ -63,21 +60,18 @@ public class Employee {
     private Employee reportsTo;
 
     @OneToMany(mappedBy = "reportsTo")
-    private Set<Employee> slaves = new LinkedHashSet<>();
+    private Set<Employee> subordinates;
 
     @Column(name = "photo_path")
     private String photoPath;
 
-    @OneToMany(mappedBy = "employeeId")
-    private Set<Order> orders = new LinkedHashSet<>();
-
-
     @ManyToMany
-    @JoinTable(
-            name = "employee_territories",
+    @JoinTable(name = "employee_territories",
             joinColumns = @JoinColumn(name = "employee_id"),
-            inverseJoinColumns = @JoinColumn(name = "territory_id")
-    )
-    private List<Territory> territories;
+            inverseJoinColumns = @JoinColumn(name = "territory_id"))
+    private Set<Territory> territories = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "managedBy")
+    private Set<Order> orders = new LinkedHashSet<>();
 
 }

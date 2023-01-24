@@ -1,21 +1,16 @@
 package be.technifutur.poupier.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "territories")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter @Setter
 public class Territory {
-
     @Id
     @Column(name = "territory_id")
     private String id;
@@ -25,10 +20,9 @@ public class Territory {
 
     @ManyToOne
     @JoinColumn(name = "region_id")
-    private Region regionId;
+    private Region region;
 
     @ManyToMany(mappedBy = "territories")
-    private List<Employee> employees;
-
+    private Set<Employee> employees = new LinkedHashSet<>();
 
 }

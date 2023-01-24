@@ -1,35 +1,24 @@
 package be.technifutur.poupier.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-
 @Entity
 @Table(name = "orders")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter @Setter
 public class Order {
-
     @Id
     @Column(name = "order_id")
-    private long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    private Customer  customer;
-
-    @ManyToOne
-    @JoinColumn(name = "employee_id")
-    private Employee employeeId;
+    private Customer customer;
 
     @Column(name = "order_date")
     private LocalDate orderDate;
@@ -40,10 +29,12 @@ public class Order {
     @Column(name = "shipped_date")
     private LocalDate shippedDate;
 
-    private float freight;
     @ManyToOne
     @JoinColumn(name = "ship_via")
     private Shipper shipVia;
+
+    @Column(name = "freight")
+    private Float freight;
 
     @Column(name = "ship_name")
     private String shipName;
@@ -65,5 +56,9 @@ public class Order {
 
     @OneToMany(mappedBy = "order")
     private Set<OrderDetail> details = new LinkedHashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee managedBy;
 
 }

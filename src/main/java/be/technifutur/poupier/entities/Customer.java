@@ -20,10 +20,10 @@ public class Customer {
     @Column(name = "customer_id")
     private String id;
 
-    @Column(name = "company_Name")
+    @Column(name = "company_name")
     private String companyName;
 
-    @Column(name = "contact_Name")
+    @Column(name = "contact_name")
     private String contactName;
 
     @Column(name = "contact_title")
@@ -31,18 +31,18 @@ public class Customer {
 
     private String address;
 
-    @Column(name = "postal_code")
-    private String postalCode;
-
     private String city;
 
     private String region;
 
+    @Column(name = "postal_code")
+    private String postalCode;
+
     private String country;
 
-    private String phone;
-
     private String fax;
+
+    private String phone;
 
     @ManyToMany
     @JoinTable(
@@ -50,8 +50,9 @@ public class Customer {
             joinColumns = @JoinColumn(name = "customer_id"),
             inverseJoinColumns = @JoinColumn(name = "customer_type_id")
     )
-    private List<Demographic> types;
+    private List<Demographics> types;
 
     @OneToMany(mappedBy = "customer")
     private Set<Order> orders;
+
 }

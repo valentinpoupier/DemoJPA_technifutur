@@ -15,7 +15,7 @@
     <connection id="04f2b31d-7027-4617-a6f1-e7b476a5f65e">
       <console name="Connection" type="STANDARD" schema="public" session="Main"><![CDATA[select p1_0.product_id,c1_0.category_id,c1_0.category_name,c1_0.description,p1_0.discontinued,p1_0.units_on_order,p1_0.product_name,p1_0.unit_price,p1_0.quantity_per_unit,p1_0.reorder_level,p1_0.units_in_stock,s1_0.supplier_id,s1_0.address,s1_0.city,s1_0.company_Name,s1_0.contact_Name,s1_0.contact_title,s1_0.country,s1_0.fax,s1_0.homepage,s1_0.phone,s1_0.postal_code,s1_0.region from products p1_0 left join categories c1_0 on c1_0.category_id=p1_0.category_id left join suppliers s1_0 on s1_0.supplier_id=p1_0.supplier_id where p1_0.product_id=1]]></console>
       <console name="Connection 1" type="STANDARD" schema="northwind" session="Main" />
-      <console name="dddz" type="STANDARD" schema="northwind" session="Main" />
+      <console name="dddz" type="STANDARD" schema="public" session="Main"><![CDATA[select * from suppliers]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">

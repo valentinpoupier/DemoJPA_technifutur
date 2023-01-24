@@ -30,4 +30,5 @@ public class OrderDetail {
     private int qtt;
 
     private double discount;
+
 }

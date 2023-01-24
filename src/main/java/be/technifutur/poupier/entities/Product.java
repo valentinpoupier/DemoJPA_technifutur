@@ -1,13 +1,11 @@
 package be.technifutur.poupier.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.Hibernate;
 
 import java.util.LinkedHashSet;
-import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -15,6 +13,7 @@ import java.util.Set;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@NamedQueries({@NamedQuery(name = "GET_ALL_PRODUCT", query = "SELECT p FROM Product p")})
 public class Product {
 
     @Id
@@ -24,46 +23,44 @@ public class Product {
     @Column(name = "product_name")
     private String name;
 
+    @Column(name = "unit_price")
+    private Double unitPrice;
+
     @Column(name = "quantity_per_unit")
     private String qttPerUnit;
 
     @Column(name = "units_in_stock")
-    private int stock;
+    private Integer stock;
 
     @Column(name = "units_on_order")
-    private  int inOrder;
+    private Integer onOrder;
 
     @Column(name = "reorder_level")
-    private int reorderLevel;
+    private Integer reorderLevel;
 
-    @Column(name="unit_price")
-    private double price;
-
-    private int discontinued;
+    private Integer discontinued;
 
     @ManyToOne
     @JoinColumn(name = "supplier_id")
     private Supplier supplier;
 
     @OneToMany(mappedBy = "product")
-    private Set<OrderDetail> orderDetails= new LinkedHashSet<>();
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Product product = (Product) o;
-
-        return id == product.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return (int) (id ^ (id >>> 32));
-    }
+    private Set<OrderDetail> orderDetails = new LinkedHashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Product product = (Product) o;
+        return Objects.equals(id, product.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
